@@ -19,75 +19,72 @@
   --shadow-grey: #ced3da;
   --space-div: 20px;
   --card-radius: 10px;
+  --grid-gap: 10px;
 }
 
 .container {
-  /* height: 100vh; */
+  height: 100vh;
 
   display: grid;
   grid-template-rows: 1fr 5fr;
   grid-template-columns: 1fr 5fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  row-gap: var(--grid-gap);
 }
 
 /* sidebar */
-.sidebar {
-  grid-row: 1 / -1;
+.sidebar-container {
+  grid-area: sidebar;
   background-color: var(--blue);
+  padding: 15px 30px 0 15px;
+}
+
+.sidebar-content {
   color: var(--white);
-  padding-right: clamp(5px, 10px, 15px);
+  height: 60%;
 
   display: grid;
-  grid-template-rows: 1fr 2fr 7fr;
-  justify-content: center;
-  /* align-items: center; */
-  gap: 30px;
+  grid-template-rows: 1fr 2fr 2fr;
+  gap: var(--grid-gap);
+  justify-content: start;
+  align-items: center;
+}
+
+.sidebar-content path {
+  fill: var(--white);
 }
 
 .sidebar-header {
-  align-self: center;
-
   display: grid;
-  grid-template-columns: 50px 1fr;
-  gap: 10px;
-}
-
-.sidebar-header path {
-  fill: var(--white);
-}
-
-#sidebar-header-title {
-  align-self: center;
-}
-
-.sidebar .sidebar-menu,
-.sidebar .sidebar-setting {
-  display: grid;
-  align-items: center;
-  grid-template-rows: repeat(6, 35px);
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.sidebar-menu li,
-.sidebar-setting li {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 10px;
+  grid-template-columns: 60px 1fr;
+  gap: var(--grid-gap);
   align-items: center;
 }
 
-.sidebar-menu svg,
-.sidebar-setting svg {
+.sidebar-menu-content,
+.sidebar-setting-content {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.sidebar-menu,
+.sidebar-setting {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: var(--grid-gap);
+  align-items: center;
+}
+
+.sidebar-menu > svg,
+.sidebar-setting > svg {
   max-width: 30px;
-}
-
-.sidebar-menu path,
-.sidebar-setting path {
-  fill: var(--white);
+  justify-self: center;
 }
 
 .sidebar-header svg:hover,
-#sidebar-header-title:hover,
+.sidebar-header-title:hover,
 .sidebar-menu svg:hover,
 .sidebar-menu-title:hover,
 .sidebar-setting svg:hover,
@@ -98,10 +95,9 @@
 /* header */
 
 .header {
-  grid-row: 1 / 2;
+  grid-area: header;
   background-color: var(--white);
   padding: calc(var(--space-div) / 3);
-  box-shadow: 5px 5px 1px 1px var(--shadow-grey);
 
   display: grid;
   grid-template-rows: 2fr 3fr;
@@ -223,7 +219,7 @@
 
 /* main */
 .main-content {
-  grid-row: 2 / -1;
+  grid-area: main;
   background-color: var(--grey);
   padding: var(--space-div);
 
