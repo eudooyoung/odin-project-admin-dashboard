@@ -26,12 +26,11 @@
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 1.5fr 5.5fr;
   grid-template-columns: 1fr 5fr;
   grid-template-areas:
     "sidebar header"
     "sidebar main";
-  row-gap: var(--grid-gap);
 }
 
 /* sidebar */
@@ -66,6 +65,7 @@
 .sidebar-menu-content,
 .sidebar-setting-content {
   display: grid;
+  grid-auto-rows: 35px;
   gap: var(--grid-gap);
 }
 
@@ -79,8 +79,14 @@
 
 .sidebar-menu > svg,
 .sidebar-setting > svg {
-  max-width: 30px;
+  max-width: 35px;
   justify-self: center;
+}
+
+.sidebar-menu-title,
+.sidebar-setting-title {
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .sidebar-header svg:hover,
@@ -93,33 +99,31 @@
 }
 
 /* header */
-
 .header {
   grid-area: header;
   background-color: var(--white);
-  padding: calc(var(--space-div) / 3);
+  padding: 10px;
 
   display: grid;
   grid-template-rows: 2fr 3fr;
-  grid-template-columns: 6fr 4fr;
-  /* gap: calc(var(--space-div) / 2); */
+  grid-template-columns: 5.5fr 4.5fr;
+  gap: var(--grid-gap);
 }
 
-.search-form {
-  padding: var(--space-div);
+.search-section {
   display: grid;
-  grid-template-columns: 1fr 9fr;
-  justify-content: center;
-  align-content: stretch;
+  grid-template-columns: 80px 800px;
+  gap: var(--grid-gap);
+  align-content: center;
+  justify-content: start;
 }
 
-#magnify-icon {
-  max-width: 40px;
-  max-height: 30px;
-  place-self: center;
+.search-section > svg {
+  max-width: 35px;
+  justify-self: center;
 }
 
-#magnify-icon:hover {
+.search-section > svg:hover {
   cursor: pointer;
 }
 
@@ -128,90 +132,96 @@
   border: none;
   background-color: var(--grey);
   padding: 0 15px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .search-box:focus {
-  outline: none;
+  outline: 1.8px solid var(--darker-blue);
 }
 
-.summary {
+.popup-section {
   display: grid;
-  grid-template-columns: 30px 80px 150px;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 100px;
+  grid-template-columns: 20% 20% 30%;
+  justify-content: center;
+  place-items: center;
+  gap: var(--grid-gap);
 }
 
-.summary .mini-profile {
-  background-image: url(./imgs/girl-8177713_1280.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  place-self: stretch;
+.popup-icon {
+  width: 35px;
+  justify-self: end;
+}
+
+.popup-profile img {
+  display: block;
+  max-width: 70px;
   border-radius: 50%;
 }
 
-.nickname {
+.popup-nickname {
+  justify-self: start;
   font-weight: 600;
+  font-size: 1.3rem;
 }
 
-.header .status {
+.popup-section > *:hover {
+  cursor: pointer;
+}
+
+.status-section {
   display: grid;
-  grid-template-columns: 100px 700px;
-  grid-template-rows: 30px 50px;
-  grid-template-areas:
-    "profile greeting"
-    "profile nickname-id";
-  padding: var(--space-div);
-  gap: calc(var(--space-div) / 2);
+  grid-template:
+    "profile greeting" 1fr
+    "profile nickname" 1fr
+    / 1.5fr 5fr;
+  gap: var(--grid-gap);
 }
 
-.profile {
+.status-profile {
   grid-area: profile;
-  background-image: url(./imgs/girl-8177713_1280.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  place-self: stretch;
+  place-self: center;
+}
+
+.status-profile > img {
+  display: block;
+  width: 100px;
   border-radius: 50%;
-  /* justify-self: stretch; */
 }
 
-.greeting {
-  padding-left: var(--space-div);
+.status-greeting {
   grid-area: greeting;
-  font-weight: 600;
   align-self: end;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
-.nickname-id {
-  padding-left: var(--space-div);
-  grid-area: nickname-id;
-  align-self: center;
+.status-nickname {
+  grid-area: nickname;
+  align-self: start;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
-.posting-buttons {
+.button-section {
   display: grid;
-  grid-template-columns: repeat(3, 130px) 80px;
-  align-content: center;
-  align-items: center;
-  justify-items: space;
-  justify-content: space-around;
+  grid-template-columns: repeat(3, 25%);
+  gap: var(--grid-gap);
+  justify-content: center;
+  place-items: center;
 }
 
-.posting-buttons button {
+.button-section button {
   background-color: var(--blue);
   color: var(--white);
-  padding: 13px 20px;
-  font-size: 16px;
-  font-weight: 600;
   border: none;
-  border-radius: 30px;
-  min-width: 110px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 120px;
+  padding: 0.7rem 0;
+  border-radius: 1.5rem;
 }
 
-.posting-buttons button:hover {
+.button-section button:hover {
   cursor: pointer;
   background-color: var(--darker-blue);
   transition-duration: 0.3s;
