@@ -231,14 +231,75 @@
 .main-content {
   grid-area: main;
   background-color: var(--grey);
-  padding: var(--space-div);
+  padding: 20px;
+  box-shadow: inset 0px 7px 7px 0px var(--shadow-grey);
 
   display: grid;
-  gap: 20px;
-  grid-template-columns: 7fr 3fr;
-  grid-template-areas:
-    "project announcements"
-    "project trending";
+  grid-template:
+    "project announcement" 55%
+    "project trending" 40%
+    / 75% 25%;
+  gap: calc(2 * var(--grid-gap));
+}
+
+.main-content > div {
+  display: grid;
+  grid-template-rows: 80px 1fr;
+}
+
+.project-section {
+  grid-area: project;
+}
+
+.project-header,
+.announcement-header,
+.trending-header {
+  align-self: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.project-card-container {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-auto-rows: 45%;
+  grid-template-columns: repeat(auto-fill, 30%);
+  justify-content: space-between;
+  align-content: space-around;
+}
+
+.project-card {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 10px solid var(--orange);
+  box-shadow: 3px 3px 3px 2px var(--shadow-grey);
+
+  display: grid;
+  grid-template-rows: 10% 45% 20%;
+  align-content: space-around;
+}
+
+.card-header {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.card-buttons {
+  align-self: end;
+
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(3, 20%);
+  justify-content: end;
+}
+
+.announcement-section {
+  grid-area: announcement;
+}
+
+.trending-section {
+  grid-area: trending;
 }
 
 .main-content > div {
@@ -246,7 +307,7 @@
   /* grid-template-rows: 1fr 9fr; */
 }
 
-.project {
+/* .project {
   grid-area: project;
 
   display: grid;
@@ -298,10 +359,10 @@
 .project-button {
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 
 /* Move buttons to the right*/
-.project-button:first-child {
+/* .project-button:first-child {
   grid-column: span 1 / -3;
   background-image: url(./svgs/star-plus-outline.svg);
 }
@@ -404,4 +465,4 @@
 
 .trending-card.status {
   grid-area: trending-status;
-}
+} */
