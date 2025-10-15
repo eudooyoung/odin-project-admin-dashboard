@@ -238,7 +238,7 @@
   display: grid;
   grid-template:
     "project announcement" 45%
-    "project trending" 45%
+    "project trending" 50%
     / 70% 25%;
   gap: calc(2 * var(--gap-grid));
   align-content: space-between;
@@ -268,7 +268,6 @@
   grid-auto-rows: 46%;
   grid-template-columns: repeat(auto-fill, 31%);
   place-content: space-between;
-
 }
 
 .project-card {
@@ -368,7 +367,7 @@
   color: var(--dark-grey);
   overflow: hidden;
 
-   display: -webkit-box;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
@@ -379,6 +378,51 @@
 
 .trending-section {
   grid-area: trending;
+}
+
+.trending-container {
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 2px var(--shadow-grey);
+}
+
+.trending-list {
+  height: 100%;
+  padding: 20px;
+
+  display: grid;
+  gap: calc(var(--gap-grid) / 2);
+  grid-template-rows: repeat(4, 50px);
+  align-content: space-between;
+}
+
+.trending-content {
+  display: grid;
+  grid-template:
+    "profile id" 1fr
+    "profile status" 1fr
+    / 50px 1fr;
+  row-gap: calc(var(--gap-grid) / 2);
+  column-gap: calc(var(--gap-grid) * 2);
+}
+
+.trending-profile {
+  grid-area: profile;
+}
+
+.trending-profile > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.trending-id {
+  grid-area: id;
+}
+
+.trending-status {
+  grid-area: status;
+  color: var(--dark-grey);
 }
 
 /* 
