@@ -1,5 +1,7 @@
 This is a project form intermediate-html-css-course of the odin project.
 
+Check result [here](https://eudooyoung.github.io/odin-project-admin-dashboard/)
+
 Puppy image by <a href="https://pixabay.com/users/u_7egpmxvswe-41433646/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8499572">u_7egpmxvswe</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8499572">Pixabay</a>
 
 Silhouette with leaves image by <a href="https://pixabay.com/users/suttlemedia-12054259/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8562019">Shawn Suttle</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8562019">Pixabay</a>
