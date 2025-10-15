@@ -11,7 +11,7 @@
 
 :root {
   --blue: #1992d4;
-  --darker-blue: #1b7aad;
+  --dark-blue: #1b7aad;
   --white: #fff;
   --grey: #e2e8f0;
   --orange: #f0b429;
@@ -48,7 +48,6 @@
   display: grid;
   grid-template-rows: 1fr 2fr 2fr;
   gap: var(--gap-grid);
-  justify-content: start;
   align-items: center;
 }
 
@@ -72,15 +71,23 @@
 
 .sidebar-menu,
 .sidebar-setting {
+  border-radius: 5px;
+
   display: grid;
   grid-template-columns: 60px 1fr;
   gap: var(--gap-grid);
   align-items: center;
 }
 
+.sidebar-menu:hover,
+.sidebar-setting:hover {
+  background-color: var(--dark-blue);
+  transition-duration: 0.2s;
+}
+
 .sidebar-menu > svg,
 .sidebar-setting > svg {
-  max-width: 35px;
+  max-width: 27px;
   justify-self: center;
 }
 
@@ -90,12 +97,9 @@
   font-weight: 600;
 }
 
-.sidebar-header svg:hover,
-.sidebar-header-title:hover,
-.sidebar-menu svg:hover,
-.sidebar-menu-title:hover,
-.sidebar-setting svg:hover,
-.sidebar-setting-title:hover {
+.sidebar-header:hover,
+.sidebar-menu:hover,
+.sidebar-setting:hover {
   cursor: pointer;
 }
 
@@ -122,10 +126,13 @@
 .search-section > svg {
   max-width: 35px;
   justify-self: center;
+  border-radius: 5px;
 }
 
 .search-section > svg:hover {
   cursor: pointer;
+  background-color: var(--grey);
+  transition-duration: 0.2s;
 }
 
 .search-box {
@@ -137,7 +144,9 @@
 }
 
 .search-box:focus {
-  outline: 1.8px solid var(--darker-blue);
+  outline: none;
+  box-shadow: 0px 2px 2px var(--dark-shadow-grey);
+  transition-duration: 0.1s;
 }
 
 .popup-section {
@@ -224,8 +233,8 @@
 
 .button-section button:hover {
   cursor: pointer;
-  background-color: var(--darker-blue);
-  transition-duration: 0.3s;
+  background-color: var(--dark-blue);
+  transition-duration: 0.2s;
 }
 
 /* main */
@@ -278,11 +287,13 @@
   box-shadow: 3px 3px 3px 2px var(--shadow-grey);
 
   display: grid;
-  grid-template-rows: 10% 45% 20%;
+  grid-template-rows: 10% 60% 20%;
   align-content: space-around;
 }
 
-.project-card:hover {
+.project-card:hover,
+.announcement-container:hover,
+.trending-container:hover {
   box-shadow: 5px 5px 5px 3px var(--dark-shadow-grey);
   transition-duration: 0.25s;
 }
@@ -295,14 +306,17 @@
 .card-description {
   color: var(--dark-grey);
   line-height: 1.3rem;
+  overflow-y: auto;
+  /* white-space: nowrap; */
+  /* text-overflow: ellipsis; */
 }
 
 .card-buttons {
   align-self: end;
 
   display: grid;
-  gap: var(--gap-grid);
-  grid-template-columns: repeat(3, 15%);
+  gap: calc(var(--gap-grid) * 2);
+  grid-template-columns: repeat(3, 10%);
   grid-template-rows: 30px;
   justify-content: end;
 }
@@ -310,10 +324,12 @@
 .card-buttons > li {
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 5px;
 }
 
 .card-buttons > li:hover {
   cursor: pointer;
+  background-color: var(--grey);
 }
 
 .card-buttons > li:first-child {
@@ -361,6 +377,10 @@
 
 .announcement-content-header {
   font-weight: 600;
+}
+
+.announcement-content-header:hover {
+  cursor: pointer;
 }
 
 .announcement-content-description {
@@ -416,67 +436,16 @@
   border-radius: 50%;
 }
 
+.trending-profile > img {
+  cursor: pointer;
+}
+
 .trending-id {
   grid-area: id;
+  align-self: end;
 }
 
 .trending-status {
   grid-area: status;
   color: var(--dark-grey);
 }
-
-/* 
-
-.trending {
-  grid-area: trending;
-}
-
-.trending-card-container {
-  grid-template-rows: repeat(4, 1fr);
-}
-
-.trending-card-container > .trending-card {
-  display: grid;
-  grid-template-rows: 40px 40px;
-  grid-template-columns: 80px 1fr;
-  grid-template-areas:
-    "trending-profile trending-id"
-    "trending-profile trending-status";
-}
-
-.trending-card:nth-child(1) .profile-image {
-  background-image: url("./imgs/avocado-5130214_1280.png");
-}
-
-.trending-card:nth-child(2) .profile-image {
-  background-image: url("./imgs/girl-8177713_1280.png");
-}
-
-.trending-card:nth-child(3) .profile-image {
-  background-image: url("./imgs/puppy.jpg");
-}
-
-.trending-card:nth-child(4) .profile-image {
-  background-image: url("./imgs/silhouette.jpg");
-}
-
-.trending-card .profile-image {
-  grid-area: trending-profile;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-}
-
-.trending-card .id,
-.trending-card .status {
-  padding-left: 5%;
-}
-
-.trending-card .id {
-  grid-area: trending-id;
-  align-self: center;
-}
-
-.trending-card.status {
-  grid-area: trending-status;
-} */
